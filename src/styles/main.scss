@@ -1,0 +1,204 @@
+/**
+ * Tools
+ */
+@import "base/mixin";
+@import "base/rem";
+@import "base/css3";
+
+/**
+ * Init Styles
+ */
+@import "base/reset";
+@import "base/media";
+@import "base/common";
+
+/**
+ * Vars
+ */
+$color-red: #e5017d;
+$rmb: '\00A5'; //字符串：¥
+
+img {
+	width: 100%;
+}
+/**
+ * Images Url
+ */
+$online: null;
+
+$url-icons: '../images/icons.png';
+$sprite-icons: '../images/icon-sprite.png';
+
+@if $online {
+	$url-icons: '//img.miyabaobei.com/d1/p5/2017/04/27/34/5a/345a7747076eee2b8b52e6196cc9936b626362613.png';
+	$sprite-icons: '//img.miyabaobei.com/d1/p5/2017/07/06/76/11/7611ce764dcc472e04eda4affdbdd7ba114994748.png';
+}
+
+/**
+ * Page styles
+ */
+html, body {
+	background-color: #f6f6f6;
+	
+}
+body{
+	font-size: rem(28);
+}
+// 首页
+.search-bar{
+	font-size: rem(28);
+	height: rem(80);
+	line-height: rem(80);
+	background: $color-red;
+	.location-icon{
+		vertical-align: middle;
+		margin-left: rem(20);
+	}
+	.search-input{
+		border:none;
+		width: 95%;
+		height: rem(60);
+		line-height: rem(60);
+		padding-left: 5%;
+	}
+}
+.swipe-warp{
+	clear:both;
+	.van-swipe{
+		height: 100%;
+	}
+}
+// 页面分类
+.type-bar{
+	background: #ffffff;
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	text-align: center;
+	padding: rem(10);
+	.type-item{
+		flex: 1;
+		padding: rem(10);
+		img{
+			width: 90%;
+		}
+	}
+	span{
+		padding-top: rem(20);
+		display: block;
+	}
+}
+.ad-banner{
+	img{
+		width: 100%;
+	}
+}
+.recommend-area{
+	background: #ffffff;
+	.recommend-title{
+		height: rem(80);
+		line-height: rem(80);
+		border-bottom: 1px solid #ddd;
+		padding-left: rem(20);
+	}
+	.recommend-body{
+		overflow: auto;
+		padding: rem(20) rem(10) 0 rem(20);
+		ul{
+			white-space: nowrap;
+			display: flex;
+		}
+		li {
+			width: rem(200);
+			padding: 0 rem(10);
+			.imgbox{
+				width: rem(200);
+				height: rem(200);
+			}
+			.infobox{
+				margin-top: rem(20);
+				.name{
+					font-size: rem(24);
+					white-space: normal;
+					@include ellipsis(2);
+					margin-bottom: rem(14);
+				}
+				.sp{
+					color: $color-red;
+					&::before{
+						content: $rmb;
+					}
+				}
+			}
+		}
+	}
+}
+.floor{
+	background: #ffffff;
+	.floor-title{
+		height: rem(80);
+		line-height: rem(80);
+		padding-left: rem(20);
+		border-bottom: 1px solid #ddd;
+	}
+	.floor-anomaly{
+		display: flex;
+		flex-direction: row;
+		border-bottom: 1px solid #ddd;
+		div{
+			width: rem(375);
+			box-sizing: border-box;
+		}
+		.floor-one{
+			border-right: 1px solid #ddd;
+		}
+		.floor-two{
+			border-bottom: 1px solid #ddd;
+		}
+	}
+	.floor-rule{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		div{
+			width: rem(375);
+			border-bottom: 1px solid #ddd;
+			box-sizing: border-box;
+			&:nth-child(odd){
+				border-right: 1px solid #ddd;
+			}
+		}
+	}
+}
+// hot
+.hot-area{
+	background: #ffffff;
+	.hot-title{
+		height: rem(80);
+		line-height: rem(80);
+		padding-left: rem(20);
+		border-bottom: 1px solid #dddddd;
+	}
+}
+/* goods */
+.goods-info {
+	.goods-image{
+		width: rem(375);
+		height: rem(375);
+	}
+	.goods-name{
+		font-size: rem(24);
+		white-space: normal;
+		@include ellipsis(2);
+		margin-bottom: rem(14);
+		padding: rem(20) rem(20) 0 rem(20);
+		min-height: rem(75)
+	}
+	.goods-price{
+		color: $color-red;
+		padding: 0 rem(20) rem(20);
+		&::before{
+			content: $rmb;
+		}
+	}
+}
